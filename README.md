@@ -43,4 +43,4 @@ python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py \
 
 ## License
 
-MIT
+MIT. See [LICENSE](LICENSE). The repository also includes a [privacy notice](PRIVACY.md), [terms](TERMS.md), and [official submission test cases](submission/TEST_CASES.md).
