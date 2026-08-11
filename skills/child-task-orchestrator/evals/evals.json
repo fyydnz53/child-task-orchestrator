@@ -1,0 +1,129 @@
+{
+  "skill": "child-task-orchestrator",
+  "baseline_observations": [
+    "All five baseline runs selected create_thread and minimal context.",
+    "All five assumed create_thread could directly create a named branch, which is not supported by the exposed tool schema.",
+    "All five omitted a durable parent-child registry and idempotent recovery protocol.",
+    "All five relied on an informal summary instead of a versioned handoff schema and parent acknowledgement.",
+    "A real collaborative child auto-committed and submitted final after its first implementation turn because commit was an acceptance criterion and no explicit-close gate existed.",
+    "A runtime exposed Codex App task capabilities only through namespaced or deferred tools; exact bare-name checks incorrectly reported all task tools missing."
+  ],
+  "forward_test_results": {
+    "full_workflow": "5/5 selected create_thread with a worktree, minimal context, local binding, versioned handoff, parent acceptance, and reconciliation before retry.",
+    "observed_gap": "Exact create_thread argument nesting and canonical submitted status drifted when only documented in a reference file.",
+    "refinement": "Promoted the exact create_thread JSON shape and handoff_submitted invariant into SKILL.md.",
+    "focused_retest": "2/2 returned the exact target shape, handoff_submitted status, and awaiting_parent_review reconcile issue.",
+    "collaborative_v2_first_turn": "5/5 kept the child active, used checkpoint only, and explicitly avoided git add, commit, request-close, and final.",
+    "collaborative_v2_close_turn": "The same 5/5 agents received 收子任务 in a second turn and then used request-close, finalizing, final verification, close-phase commit, and final handoff without self-acceptance.",
+    "public_release_hardening": "Independent review found five release blockers. The CLI now prevents managed-state bypass, reviews only the latest final handoff, records pending clientThreadId and real hostId, separates protocol and worktree roots, and serializes state mutations with thread and process locks. Twenty regression tests pass."
+  },
+  "cases": [
+    {
+      "id": "namespaced-or-partial-task-tools",
+      "prompt": "开子任务：继续优化过滤漏斗。当前没有裸名 list_projects/create_thread/set_thread_title 工具。",
+      "required": [
+        "discover namespaced or deferred task capabilities",
+        "treat set_thread_title as optional",
+        "use fork_thread as a visible-task fallback"
+      ],
+      "forbidden": [
+        "fail based only on missing bare tool names",
+        "spawn_agent as the persistent child",
+        "claim success without a real task ID"
+      ]
+    },
+    {
+      "id": "collaborative-turn-does-not-close",
+      "prompt": "开子任务：优化过滤规则。完成第一版后先让我 review，我还会继续提修改。",
+      "required": [
+        "session_mode collaborative",
+        "remain active after the first implementation turn",
+        "checkpoint only before explicit close",
+        "invite continued user iteration"
+      ],
+      "forbidden": [
+        "Git commit before 收子任务",
+        "final handoff before request-close",
+        "treating acceptance criteria as immediate session termination"
+      ]
+    },
+    {
+      "id": "explicit-child-close",
+      "prompt": "收子任务",
+      "required": [
+        "request-close",
+        "finalizing status",
+        "final verification",
+        "close-phase commit",
+        "final handoff"
+      ],
+      "forbidden": [
+        "final submission directly from active",
+        "parent acceptance performed by the child"
+      ]
+    },
+    {
+      "id": "visible-code-child",
+      "prompt": "Split a long engineering task into a child session that appears in the Codex sidebar, lets me continue multi-turn editing, changes code safely, and returns only a compact result to the parent.",
+      "required": [
+        "create_thread",
+        "worktree",
+        "minimal bootstrap",
+        "local binding",
+        "versioned handoff",
+        "parent acceptance"
+      ],
+      "forbidden": [
+        "spawn_agent as the persistent child",
+        "fork_thread by default",
+        "invented create_thread branch-name field",
+        "full transcript copied to parent",
+        "child self-declared completion"
+      ]
+    },
+    {
+      "id": "visible-analysis-child",
+      "prompt": "Create a visible Codex child task for a read-only data review. I need to enter it and discuss findings over multiple turns without copying its full history back.",
+      "required": [
+        "create_thread",
+        "local project environment",
+        "sidebar-visible task",
+        "structured handoff"
+      ],
+      "forbidden": [
+        "worktree required for read-only analysis",
+        "spawn_agent as the user-facing session"
+      ]
+    },
+    {
+      "id": "recovery",
+      "prompt": "The local child directory exists but task creation timed out and I do not know whether Codex created it. Continue safely.",
+      "required": [
+        "reuse operation ID",
+        "reconcile",
+        "inspect existing tasks before retry",
+        "bind existing task when found"
+      ],
+      "forbidden": [
+        "blind duplicate create",
+        "new child ID for the same operation"
+      ]
+    },
+    {
+      "id": "async-task-setup",
+      "prompt": "create_thread returned clientThreadId while the worktree is still being prepared. Continue safely.",
+      "required": [
+        "record pending clientThreadId",
+        "resolve a real threadId through task listing",
+        "bind the returned hostId",
+        "preserve the parent protocol root"
+      ],
+      "forbidden": [
+        "pass clientThreadId as threadId",
+        "hard-code hostId",
+        "recompute protocol root from the child worktree",
+        "blind duplicate create"
+      ]
+    }
+  ]
+}

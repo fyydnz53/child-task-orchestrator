@@ -1,0 +1,25 @@
+name: Test
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Compile helper
+        run: python -m py_compile skills/child-task-orchestrator/scripts/child_task.py
+      - name: Validate JSON metadata
+        run: |
+          python -m json.tool .codex-plugin/plugin.json >/dev/null
+          python -m json.tool skills/child-task-orchestrator/evals/evals.json >/dev/null
+      - name: Run unit tests
+        run: python -m unittest discover -s skills/child-task-orchestrator/tests -v

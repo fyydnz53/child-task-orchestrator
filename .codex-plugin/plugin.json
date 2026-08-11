@@ -1,0 +1,38 @@
+{
+  "name": "child-task-orchestrator",
+  "version": "0.1.0",
+  "description": "Create user-visible, resumable Codex child tasks with durable contracts, explicit close, and versioned handoffs.",
+  "author": {
+    "name": "fyydnz53",
+    "url": "https://github.com/fyydnz53"
+  },
+  "homepage": "https://github.com/fyydnz53/child-task-orchestrator",
+  "repository": "https://github.com/fyydnz53/child-task-orchestrator",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "skills",
+    "child-tasks",
+    "orchestration",
+    "handoff",
+    "worktrees"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Child Task Orchestrator",
+    "shortDescription": "Run visible, resumable child tasks with reliable handoffs",
+    "longDescription": "Create real Codex sidebar tasks for isolated, multi-turn work. Track each child with a durable local contract, explicit close gate, versioned checkpoints, idempotent recovery, and parent-reviewed final handoffs.",
+    "developerName": "fyydnz53",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/fyydnz53/child-task-orchestrator",
+    "defaultPrompt": [
+      "Open a visible child task for this work and keep it active until I explicitly close it.",
+      "开子任务：把这项工作放进可恢复的 Codex 子任务中。"
+    ]
+  }
+}

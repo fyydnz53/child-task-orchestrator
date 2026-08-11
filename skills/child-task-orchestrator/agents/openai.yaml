@@ -1,0 +1,4 @@
+interface:
+  display_name: "Child Task Orchestrator"
+  short_description: "Run collaborative Codex child tasks with explicit close"
+  default_prompt: "Use $child-task-orchestrator to open a collaborative child task for this topic."
