@@ -1,6 +1,6 @@
 ---
 name: child-task-orchestrator
-description: Use when a long Codex task needs a user-visible, resumable child task for isolated multi-turn collaboration or handoff, including requests such as 开子任务, 启动子任务, 收子任务, 回收子任务, or 返回主任务.
+description: Orchestrate user-visible, resumable Codex child tasks with isolated multi-turn collaboration and versioned parent-child handoff. Use for long-running work, sidebar tasks, worktree execution, Codex 子任务编排, 多轮协作, or requests such as 开子任务, 启动子任务, 收子任务, 回收子任务, and 返回主任务.
 ---
 
 # Child Task Orchestrator
