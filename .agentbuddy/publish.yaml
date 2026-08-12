@@ -1,0 +1,12 @@
+schema_version: v1
+
+metadata:
+  name: child-task-orchestrator
+  description: Resumable child-task orchestration for Codex
+  owner: jiangguangkun
+
+registry:
+  skills:
+    - path: skills
+      items:
+        - child-task-orchestrator
